@@ -10,4 +10,3 @@ while num!=ans:
         print("too small!")
         num=int(input())
 print("牛逼啊！")
-print("好了，爸爸不玩了")
