@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "array": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cstdlib": "cpp"
     },
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
