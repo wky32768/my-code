@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
 #define For(i,a,b) for(register int i=a;i<=b;i++)
-#define int long long
 using namespace std;
+
+inline char gc(){static char buf[100000],*p1=buf,*p2=buf;return p1==p2&&(p2=(p1=buf)+fread(buf,1,100000,stdin),p1==p2)?EOF:*p1++;}
+#define gc getchar
 inline int read() {int x=0,f=0;char ch=getchar();while(!isdigit(ch)) f|=(ch=='-'),ch=getchar();while(isdigit(ch)) x=x*10+ch-'0',ch=getchar();return f?-x:x;}
 
-const int N=100005;
+const int N=400005;
 int n,m,q,a[N],tree[N<<2],add[N<<2];
 struct node {int opt,l,r;} sxd[N];
 
@@ -25,6 +27,7 @@ inline void pushdown(int rt,int l,int r) {
 }
 
 inline void change(int L,int R,int C,int l,int r,int rt) {
+	if(L>R) return;
 	if(L<=l && r<=R) {
 		add[rt]=C+1;
 		tree[rt]=(r-l+1)*C;
@@ -38,6 +41,7 @@ inline void change(int L,int R,int C,int l,int r,int rt) {
 }
 
 inline int ask(int L,int R,int l,int r,int rt) {
+	if(L>R) return 0;
 	if(L<=l && r<=R) return tree[rt];
 	int mid=(l+r)>>1,tot=0;
 	pushdown(rt,mid-l+1,r-mid);
@@ -47,7 +51,9 @@ inline int ask(int L,int R,int l,int r,int rt) {
 }
 
 inline bool ok(int x) {
+	memset(tree,0,sizeof tree);
 	build(1,n,1,x);
+	memset(add,0,sizeof add);
 	For(i,1,m) {
 		int zong=ask(sxd[i].l,sxd[i].r,1,n,1);
 		if(sxd[i].opt==0) {

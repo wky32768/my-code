@@ -129,10 +129,11 @@ big divide(const big &a,const big &b,big &mod) {
 big a,b,c,d;
 signed main() {
 	cin>>a>>b;
-	if(a<b) cout<<a+b<<'\n'<<'-'<<b-a<<'\n'<<a*b<<'\n'<<'0'<<'\n'<<a;
-	else {
-		c=divide(a,b,d);
-		cout<<a+b<<'\n'<<a-b<<'\n'<<a*b<<'\n'<<c<<'\n'<<d;
-	}
+//	if(a<b) cout<<a+b<<'\n'<<'-'<<b-a<<'\n'<<a*b<<'\n'<<'0'<<'\n'<<a;
+//	else {
+//		c=divide(a,b,d);
+//		cout<<a+b<<'\n'<<a-b<<'\n'<<a*b<<'\n'<<c<<'\n'<<d;
+//	}
+	cout<<a+b<<" "<<a*b<<'\n';
 	return 0;
 }
